@@ -9,10 +9,9 @@ services:
         - POSTGRES_DB=project_dev
 
   web-app:
-    build:
-      context: .
+    build: .
     ports:
-      - 8000:8000
+      - 8002:8000
     restart: always
     depends_on:
       - db
