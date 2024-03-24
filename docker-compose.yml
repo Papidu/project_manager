@@ -1,0 +1,20 @@
+services:
+  db:
+      image: postgres:15-alpine
+      expose:
+        - 5432
+      environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=1
+        - POSTGRES_DB=project_dev
+
+  web-app:
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    restart: always
+    depends_on:
+      - db
+#docker-compose down
+#docker-compose up -d
